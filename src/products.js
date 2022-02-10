@@ -37,22 +37,26 @@ var products = [{
 
 
 
-buildTable(products)
+buildTable()
 
-var html = '';
-function buildTable(data){
+function buildTable(){
+	var html = '';
 	
-     html += '<table id = "myTable"><tr><th>ID</th><th>NAME</th><th>BRAND</th><th>OS</th></tr>';
+     html += '<table id = "myTable"><tr><th>ID</th><th>NAME</th><th>BRAND</th><th>OS</th><th>action</th></tr>';
 
     for(i =0 ; i < products.length ; i++)
     {
-        html += '<tr><td>'+products[i].id+'</td><td>'+products[i].name+'</td><td>'+products[i].brand+'</td><td>'+products[i].os+'</td></tr>';
+        html += '<tr><td>'+products[i].id+'</td><td>'+products[i].name+'</td><td>'+products[i].brand+'</td><td>'+products[i].os+'</td><td><a href = "#" id="delId">X</a></td></tr>';
 
     }
     html += '</table>';
+	//console.log(html)
     document.getElementById('result').innerHTML = html;
 }
 
+$("body").on("click","#delId" ,function(e){
+    $(this).parents('tr').remove();
+  });
 
 
 // flter by searching the table
@@ -129,7 +133,7 @@ $("#selectField2").on("change", function() {
 function display2(flagOs ,flagBrand)
 {
 	html1 = ''
-	html1 += '<table id = "myTable"><tr><th>ID</th><th>NAME</th><th>BRAND</th><th>OS</th></tr>';
+	html1 += '<table id = "myTable"><tr><th>ID</th><th>NAME</th><th>BRAND</th><th>OS</th><th>action</th></tr>';
 	if(flagOs == 1 && flagBrand == 0)
 	{
 		for(i =0 ; i < products.length ; i++)
@@ -139,7 +143,7 @@ function display2(flagOs ,flagBrand)
 				if(products[i].id == sortByOs[j])
 				{
 				//	console.log("matches")
-				html1 += '<tr><td>'+products[i].id+'</td><td>'+products[i].name+'</td><td>'+products[i].brand+'</td><td>'+products[i].os+'</td></tr>';
+				html1 += '<tr><td>'+products[i].id+'</td><td>'+products[i].name+'</td><td>'+products[i].brand+'</td><td>'+products[i].os+'</td><td><a href = "#" id="delId">X</a></td></tr>';
 				}
 			}
 
@@ -153,7 +157,7 @@ function display2(flagOs ,flagBrand)
 		{
 				if(products[i].id == sortByBrand[j])
 				{
-				html1 += '<tr><td>'+products[i].id+'</td><td>'+products[i].name+'</td><td>'+products[i].brand+'</td><td>'+products[i].os+'</td></tr>';
+				html1 += '<tr><td>'+products[i].id+'</td><td>'+products[i].name+'</td><td>'+products[i].brand+'</td><td>'+products[i].os+'</td><td><a href = "#" id="delId">X</a></td></tr>';
 				}
 		}
 	}
@@ -173,7 +177,7 @@ function display2(flagOs ,flagBrand)
 					{
 						if(sortByOs[i] == products[k].id)
 						{
-						html1 += '<tr><td>'+products[k].id+'</td><td>'+products[k].name+'</td><td>'+products[k].brand+'</td><td>'+products[k].os+'</td></tr>';
+						html1 += '<tr><td>'+products[k].id+'</td><td>'+products[k].name+'</td><td>'+products[k].brand+'</td><td>'+products[k].os+'</td><td><a href = "#" id="delId">X</a></td></tr>';
 						}
 					}
 				}
