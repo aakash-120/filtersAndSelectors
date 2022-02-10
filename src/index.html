@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <title>Document</title>
+   
+</head>
+<body>
+
+    <div>
+        Filter by searching 
+        <input id="myInput" type="text" placeholder="Search..">
+    </div>
+    <br><br>
+    <div class="optionsDiv">
+        Filter By OS
+        <select id="selectField">
+            <option value="none" selected disabled hidden>Select an Option</option>
+            <option value="iOS">iOS</option>
+            <option value="Android">Android</option>
+            <option value="Windows">Windows</option>
+
+        </select>
+   
+    </div>
+<br>
+    <div class="optionsDiv2">
+        Filter By BRAND
+        <select id="selectField2">
+            <option value="none" selected disabled hidden>Select an Option</option>
+            <option value="Apple">Apple</option>
+            <option value="Motorola">Motorola</option>
+            <option value="Samsung">Samsung</option>
+            <option value="ASUS">ASUS</option>
+            <option value="Microsoft">Microsoft</option>
+        </select>
+   
+    </div>
+
+    <div id = "result"></div>
+   <!-- <div id = "result2"></div> -->
+    <script src="products.js" defer></script>
+</body>
+</html>
