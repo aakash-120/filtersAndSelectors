@@ -21,6 +21,7 @@ table, td, th {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    margin-bottom:1%;
   }
   
   input[type=text]:focus {
@@ -39,11 +40,14 @@ table, td, th {
     cursor: pointer;
     border: 1px solid black;
     border-radius: 3px;
+    padding-top:0.5%;
+    padding-bottom:0.5%;
 }
 
 
 div{
     margin-left:5%;
+   
 }
 
 #selectField {
