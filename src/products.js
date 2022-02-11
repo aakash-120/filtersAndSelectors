@@ -40,26 +40,19 @@ var products = [{
 buildTable()
 
 function buildTable(){
-	var html = '';
-	
+	var html = '';	
      html += '<table id = "myTable"><tr><th>ID</th><th>NAME</th><th>BRAND</th><th>OS</th><th>action</th></tr>';
-
     for(i =0 ; i < products.length ; i++)
     {
         html += '<tr><td>'+products[i].id+'</td><td>'+products[i].name+'</td><td>'+products[i].brand+'</td><td>'+products[i].os+'</td><td><a href = "#" id="delId">X</a></td></tr>';
-
     }
     html += '</table>';
-	//console.log(html)
-    document.getElementById('result').innerHTML = html;
+	$('#result').html(html);
 }
 
 $("body").on("click","#delId" ,function(e){
     $(this).parents('tr').remove();
   });
-
-
-// flter by searching the table
 
 $("#myInput").on("keyup", function() {
 	var value = $(this).val().toLowerCase();
@@ -69,7 +62,6 @@ $("#myInput").on("keyup", function() {
 	});
 });
   
-
 
 sortByOs = []
 sortByBrand = []
@@ -82,8 +74,7 @@ $("#selectField").on("change", function() {
    flagOs =1 
    console.log("selected"+selected)
    var j =0 ;
-   for(var i =0 ; i < products.length ; i++){
-	//console.log(products[i].os +"=="+ selected)	
+   for(var i =0 ; i < products.length ; i++){	
 	   if(products[i].os == selected)
 	   {
 			sortByOs[j] = products[i].id
@@ -93,10 +84,6 @@ $("#selectField").on("change", function() {
    for(var i =0 ; i < sortByOs.length ; i++){
 	console.log(sortByOs[i])
    }
-   
-//    $("#myTable tr").filter(function() {
-// 	   $(this).toggle($(this).text().toLowerCase().indexOf(selected) > -1)
-// 	   });
 display2(flagOs ,flagBrand)
 
 });
@@ -110,7 +97,6 @@ $("#selectField2").on("change", function() {
 
    var j =0 ;
    for(var i =0 ; i < products.length ; i++){
-	//console.log(products[i].brand +"=="+ selected)	
 	   if(products[i].brand == selected)
 	   {
 			sortByBrand[j] = products[i].id
@@ -121,14 +107,8 @@ $("#selectField2").on("change", function() {
 	console.log(sortByBrand[i])
    }
    display2(flagOs ,flagBrand)
-//    $("#myTable tr").filter(function() {
-// 	   $(this).toggle($(this).text().toLowerCase().indexOf(selected) > -1)
-	   
-// 	   });
 
 });
-
-
 
 function display2(flagOs ,flagBrand)
 {
@@ -142,7 +122,6 @@ function display2(flagOs ,flagBrand)
 			{
 				if(products[i].id == sortByOs[j])
 				{
-				//	console.log("matches")
 				html1 += '<tr><td>'+products[i].id+'</td><td>'+products[i].name+'</td><td>'+products[i].brand+'</td><td>'+products[i].os+'</td><td><a href = "#" id="delId">X</a></td></tr>';
 				}
 			}
@@ -187,5 +166,5 @@ function display2(flagOs ,flagBrand)
 	}
 
    html1 += '</table>';
-   document.getElementById('result').innerHTML = html1;
+$('#result').html(html1);
 }
